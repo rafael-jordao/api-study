@@ -1,58 +1,46 @@
-import React from "react";
-
-//cadastrar produtos com nome preço e cores
-// renderizar produtos acima de 1500 reais
-// utilizar style backgroundColor nas divs
-
-const produtos = [
-  {
-    id: 1,
-    nome: 'Smartphone',
-    preco: 'R$ 2000',
-    cores: ['#29d8d5', '#252a34', '#fc3766']
-  },
-
-  {
-    id: 2,
-    nome: 'Notebook',
-    preco: 'R$ 3000',
-    cores: ['#ffd045', '#d4394b', '#f37c59'],
-  },
-
-  {
-    id: 3,
-    nome: 'Tablet',
-    preco: 'R$ 1500',
-    cores: ['#365069', '#47c1c8', '#f95786'],
-  }
-]
-
-
+import React, { useState } from "react";
+import Produto from "./Produto";
+// https://ranekapi.origamid.dev/json/api/produto/tablet
+// https://ranekapi.origamid.dev/json/api/produto/smartphone
+// https://ranekapi.origamid.dev/json/api/produto/notebook
 
 const App = () => {
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState();
 
-  const dados = produtos.filter(
-    ({ preco }) => Number(preco.replace('R$', '')) > 1500
-  );
+  async function handleClick(e) {
+    setLoading(true)
+
+    const response = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${e.target.innerText}`)
+    const json = await response.json()
+    setData(json)
+
+    setLoading(false)
+  }
 
   return (
-    <div className="App">
-      {dados.map(({ id, nome, preco, cores }) => <div key={id}>
-        <h1>{nome}</h1>
-        <p>Preço: {preco}</p>
-        <ul>
-          
-          {cores.map((cor) => (
-            <li key={cor} style={{ backgroundColor: cor, color: 'white' }}>
-              {cor}
-            </li>
-          ))}
-       
-        </ul>
-      </div>)}
-   
+    <div>
+      
+      <ul className="NavDflex">
+        <li><a href="#"
+          onClick={handleClick}>notebook</a></li>
+        <li><a href="#"
+          onClick={handleClick}>smartphone</a></li>
+
+        <li><a href="#"
+          onClick={handleClick}>tablet</a></li>
+      </ul>
+
+      {loading && <p>Carregando...</p>}
+
+      {!loading && data && <Produto
+
+        data={data} />}
+
     </div>
-  );
+  )
+
 };
 
-export default App;
+
+export default App; 

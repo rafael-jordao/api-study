@@ -1,0 +1,136 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0%;
+    padding: 0%;
+
+    box-sizing: border-box;
+}
+
+h1 {
+    color: rgb(10, 24, 81);
+}
+
+p {
+    color: rgb(10, 24, 81);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+}
+
+img {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 2rem;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 0px 15px 30px rgb(191, 191, 191);
+}
+
+img:hover {
+    transform: scale(102%);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(10, 24, 81);
+    transition: 0.3;
+    opacity: 0.7;
+}
+
+a:hover {
+    opacity: 1;
+}
+
+
+
+li {
+    list-style: none;
+}
+
+
+/* now the className */
+
+.NavDflex {
+    display: inline-flex;
+    gap: 3rem;
+    padding: 1rem;
+
+}
+
+.DFlexTitle {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.DFlexShop {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+}
+
+.LabelWithPrice {
+    text-align: right;
+}
+
+.LabelText {
+    font-size: 0.8em;
+    color: rgb(104, 104, 104);
+}
+
+.ProductContainer {
+    padding-top: 2rem;
+}
+
+.PriceSum {
+    font-size: 0.8rem;
+    color: rgb(104, 104, 104);
+    margin-left: 0.2rem;
+   
+}
+
+.AddOrMinus {
+    margin: 0.2rem;
+    width: 100%;
+    max-width: 20%;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.maxWidth40 {
+    width: 100%;
+    max-width: 40%;
+}
+
+.Add {
+    border-color: #04AA6D;
+    color: green;
+}
+
+.Minus {
+    border-color: red;
+    color: red;
+}
+
+.ButtonShopGrenn {
+    border: 1px solid green;
+    color: green;
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.ButtonShopGrenn:hover {
+    opacity: 1;
+}
