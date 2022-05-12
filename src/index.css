@@ -21,7 +21,11 @@ body {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    background-color: #f2f2f2;
+    background-image: linear-gradient(#f2f2f2, rgb(214, 219, 225));
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
 }
 
 img {
@@ -30,7 +34,7 @@ img {
     margin-top: 2rem;
     border-radius: 10px;
     transition: 0.3s;
-    box-shadow: 0px 15px 30px rgb(191, 191, 191);
+    box-shadow: 0px 15px 30px rgb(159, 159, 159);
 }
 
 img:hover {
@@ -59,10 +63,10 @@ li {
 
 .NavDflex {
     display: inline-flex;
-    gap: 3rem;
     padding: 1rem;
-
+    gap: 2rem;
 }
+
 
 .DFlexTitle {
     display: flex;
@@ -94,7 +98,7 @@ li {
     font-size: 0.8rem;
     color: rgb(104, 104, 104);
     margin-left: 0.2rem;
-   
+
 }
 
 .AddOrMinus {
@@ -108,7 +112,7 @@ li {
 
 .maxWidth40 {
     width: 100%;
-    max-width: 40%;
+    max-width: 50%;
 }
 
 .Add {
@@ -133,4 +137,47 @@ li {
 
 .ButtonShopGrenn:hover {
     opacity: 1;
+}
+
+.animate {
+    opacity: 0;
+    animation-name: creatingOpacity;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.animateProduct {
+    opacity: 0;
+    animation-name: creatingOpacity;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes creatingOpacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width:320px) {
+    body {
+        padding: 1rem;
+    }
+
+    html {
+        font-size: 90%;
+    }
+
+    .NavDflex {
+        display: block;
+        padding: 0rem;
+    }
+
+    .NavList {
+        padding-top: 1rem;
+    }
 }

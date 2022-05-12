@@ -19,19 +19,19 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="animate">
       
       <ul className="NavDflex">
-        <li><a href="#"
+        <li className=""><a href="#"
           onClick={handleClick}>notebook</a></li>
-        <li><a href="#"
+        <li className="NavList"><a href="#"
           onClick={handleClick}>smartphone</a></li>
 
-        <li><a href="#"
+        <li className="NavList"><a href="#"
           onClick={handleClick}>tablet</a></li>
       </ul>
 
-      {loading && <p>Carregando...</p>}
+      {loading && <p className="animate">Carregando...</p>}
 
       {!loading && data && <Produto
 

@@ -18,7 +18,7 @@ const Produto = ({ data }) => {
 
   return (
 
-    <div className="ProductContainer">
+    <div className="ProductContainer animateProduct">
       <div className="DFlexTitle">
         <h1>{data.nome}</h1>
         <div className="LabelWithPrice">
