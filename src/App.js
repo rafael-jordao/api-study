@@ -5,16 +5,16 @@ import Produto from "./Produto";
 // https://ranekapi.origamid.dev/json/api/produto/notebook
 
 const App = () => {
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState();
+  const [ data, setData ] = useState();
+  const [ loading, setLoading ] = useState();
+
 
   async function handleClick(e) {
     setLoading(true)
-
+    
     const response = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${e.target.innerText}`)
     const json = await response.json()
     setData(json)
-
     setLoading(false)
   }
 
@@ -22,20 +22,18 @@ const App = () => {
     <div className="animate">
       
       <ul className="NavDflex">
-        <li className=""><a href="#"
-          onClick={handleClick}>notebook</a></li>
-        <li className="NavList"><a href="#"
-          onClick={handleClick}>smartphone</a></li>
+        <li className=""><button className="NavButton"
+          onClick={handleClick}>notebook</button></li>
+        <li className="NavList"><button className="NavButton"
+          onClick={handleClick}>smartphone</button></li>
 
-        <li className="NavList"><a href="#"
-          onClick={handleClick}>tablet</a></li>
+        <li className="NavList"><button className="NavButton"
+          onClick={handleClick}>tablet</button></li>
       </ul>
 
       {loading && <p className="animate">Carregando...</p>}
 
-      {!loading && data && <Produto
-
-        data={data} />}
+      {!loading && data && <Produto data={data}/>}
 
     </div>
   )

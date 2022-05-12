@@ -125,6 +125,20 @@ li {
     color: red;
 }
 
+.NavButton{
+    border: 1px solid rgb(10, 24, 81);;
+    color: rgb(10, 24, 81);;
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.NavButton:hover{
+    opacity: 1;
+}
+
 .ButtonShopGrenn {
     border: 1px solid green;
     color: green;
@@ -152,6 +166,8 @@ li {
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
+
+
 
 @keyframes creatingOpacity {
     from {
