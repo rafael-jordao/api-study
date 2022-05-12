@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rafael-jordao/api-study/static/css/main.17a02b66.css",
+    "main.js": "/rafael-jordao/api-study/static/js/main.07c62b47.js",
+    "index.html": "/rafael-jordao/api-study/index.html",
+    "main.17a02b66.css.map": "/rafael-jordao/api-study/static/css/main.17a02b66.css.map",
+    "main.07c62b47.js.map": "/rafael-jordao/api-study/static/js/main.07c62b47.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17a02b66.css",
+    "static/js/main.07c62b47.js"
+  ]
+}
