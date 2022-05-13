@@ -1,3 +1,7 @@
+## Clonando o repositório
+
+No diretório de sua preferência, execute o comando **git clone https://github.com/rafael-jordao/api-study-site.git**
+
 ## Inicializando o projeto
 
 - Execute o comando **npm install**
