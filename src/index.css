@@ -14,6 +14,7 @@ p {
     color: rgb(10, 24, 81);
 }
 
+
 body {
     display: flex;
     justify-content: center;
@@ -21,16 +22,17 @@ body {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    background-image: linear-gradient(#f2f2f2, rgb(214, 219, 225));
+    /* background-image: linear-gradient(#f2f2f2, rgb(214, 219, 225));
     background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
+    background-repeat: no-repeat; */
     width: 100vw;
+    height: 100%;
+    overflow-y: auto;
 }
 
 img {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     margin-top: 2rem;
     border-radius: 10px;
     transition: 0.3s;
@@ -92,6 +94,10 @@ li {
 
 .ProductContainer {
     padding-top: 2rem;
+    width: 100%;
+    max-width: 300px;
+    margin-left: 50px;
+  
 }
 
 .PriceSum {
@@ -139,6 +145,14 @@ li {
     opacity: 1;
 }
 
+.DflexMain {
+    width: 100%;
+    overflow-x: auto;
+    margin: 0 auto;
+    height: 100vh;
+    width: 500px;
+}
+
 .ButtonShopGrenn {
     border: 1px solid green;
     color: green;
@@ -147,6 +161,7 @@ li {
     cursor: pointer;
     opacity: 0.5;
     transition: 0.3s;
+    background-color: aliceblue;
 }
 
 .ButtonShopGrenn:hover {

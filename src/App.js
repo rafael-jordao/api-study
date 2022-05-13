@@ -5,35 +5,77 @@ import Produto from "./Produto";
 // https://ranekapi.origamid.dev/json/api/produto/notebook
 
 const App = () => {
-  const [ data, setData ] = useState();
-  const [ loading, setLoading ] = useState();
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState();
+  const [products, setProducts] = useState([]);
 
+  const url = 'https://ranekapi.origamid.dev/json/api/produto/'
 
-  async function handleClick(e) {
-    setLoading(true)
-    
-    const response = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${e.target.innerText}`)
+  const getApi = async () => {
+    const response = await fetch(url)
     const json = await response.json()
     setData(json)
-    setLoading(false)
+    console.log(json)
+  }
+
+  React.useEffect(() => {
+    getApi()
+  }, [])
+
+  React.useEffect(() => {
+    if (products !== 0) {
+      window.localStorage.setItem('product-', JSON.stringify({
+        "product": products
+      }))
+    }
+
+  }, [products])
+
+
+  function getProductsData(itemData) {
+
+    let product = [{
+      nome: itemData.nome,
+      preco: itemData.preco,
+      fotos: itemData.fotos
+    }]
+
+    setProducts([...products, product])
+    if(product !== null) {
+        setProducts(product)
+    }
+    console.log(product)
+
   }
 
   return (
     <div className="animate">
-      
-      <ul className="NavDflex">
-        <li className=""><button className="NavButton"
-          onClick={handleClick}>notebook</button></li>
-        <li className="NavList"><button className="NavButton"
-          onClick={handleClick}>smartphone</button></li>
 
-        <li className="NavList"><button className="NavButton"
-          onClick={handleClick}>tablet</button></li>
+      <ul className="NavDflex">
+        {data.map((item, id) => {
+          return (
+            <li className="NavList" key={id}><button onClick={async () => getProductsData(item)} className="NavButton">{item.nome}</button></li>
+          )
+        })}
       </ul>
 
-      {loading && <p className="animate">Carregando...</p>}
+      <ul className="DflexMain">
+        {products.map((item, id) => {
+          return (
+            <div key={id} className="ProductContainer animateProduct">
 
-      {!loading && data && <Produto data={data}/>}
+              {loading && <p className="animate">Carregando...</p>}
+
+              {products && <Produto data={item} />}
+
+            </div>
+          )
+        })}
+      </ul>
+
+
+
+
 
     </div>
   )

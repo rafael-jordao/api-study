@@ -3,23 +3,19 @@ import React, { useState } from "react";
 const Produto = ({ data }) => {
 
   const [count, setCount] = useState(0)
+  
 
   React.useEffect(() => {
-    if(count !== 0) window.localStorage.setItem('item', count)
-  }, [count])
-
-  // React.useEffect(() => {
-  //   let storageItems = window.localStorage.getItem('item')
-  //   if( storageItems >= 0) setCount(storageItems)
-  // }, [])
-
-  // React.useEffect(() => {
-  //   const localProduct = window.localStorage.getItem('product')
-  //   console.log(localProduct)
-  // })
+      if (count !== 0) {
+        window.localStorage.setItem('product-' + data.nome, JSON.stringify({
+          "quantity": count
+        }))
+      }
+  
+    }, [count])
+  
 
   const handleClickPlus = () => {
-
     setCount(count + 1)
   }
 
