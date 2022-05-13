@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Produto from "./Produto";
-// https://ranekapi.origamid.dev/json/api/produto/tablet
-// https://ranekapi.origamid.dev/json/api/produto/smartphone
-// https://ranekapi.origamid.dev/json/api/produto/notebook
+
+// https://ranekapi.origamid.dev/json/api/produto/
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -12,15 +11,18 @@ const App = () => {
   const url = 'https://ranekapi.origamid.dev/json/api/produto/'
 
   const getApi = async () => {
+    setLoading(true)
     const response = await fetch(url)
     const json = await response.json()
     setData(json)
     console.log(json)
+    setLoading(false)
   }
 
   React.useEffect(() => {
     getApi()
   }, [])
+
 
   React.useEffect(() => {
     if (products !== 0) {
@@ -39,13 +41,12 @@ const App = () => {
       preco: itemData.preco,
       fotos: itemData.fotos
     }]
-
-    setProducts([...products, product])
-    if(product !== null) {
+    
+    if(product.length) {
         setProducts(product)
-    }
+    } 
+   
     console.log(product)
-
   }
 
   return (
